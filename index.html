@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="white" />
+    <script>let exports = {};</script>
+    <script src="https://www.unpkg.com/e25n@1.0.3/dist/bundle.js"></script>
+    <title>e25n -- English Numerical Contraction</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <h1>e25n</h1>
+    <input id="userInput" placeholder="English Numerical Contraction"/>
+    <script>
+      document.getElementById("userInput").addEventListener('change', onInputChange);
+      function onInputChange() {
+        console.log(e25n(this.value));
+      }
+    </script>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+</html>
