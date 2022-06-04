@@ -23,13 +23,14 @@ export default function e25n(inputString) {
   }
 
   const oldSyllables = syllable(inputString);
-  const first = inputChars.shift();
-  const last = inputChars.pop();
-  const newSyllables = letterToSyllable(first) + syllable(numberToWords.toWords(inputChars.length)) + letterToSyllable(last);
-  const newWord = `${first}${inputChars.join('').length}${last}`;
+  const first = inputChars[0];
+  const last = inputChars[inputChars.length - 1];
+  const middle = inputChars.slice(1, inputChars.length - 1).join('');
+  const newSyllables = letterToSyllable(first) + syllable(numberToWords.toWords(middle.length)) + letterToSyllable(last);
+  const newWord = `${first}${middle.length}${last}`;
 
   let collisions = wordMap.wordMap[newWord] || [];
-  collisions = collisions.filter((w) => w != inputChars);
+  collisions = collisions.filter((w) => w != inputChars.join(''));
   let annoyingScale = 0;
   if (!collisions.length) {
     annoyingScale = newSyllables <= oldSyllables ? (newSyllables == oldSyllables ? 2 : 1) : 3;
